@@ -76,7 +76,7 @@
 		.lyric{
 			width: 100%;
 			height: 400px;
-			margin: 0 auto;
+			margin: 10px auto;
 			overflow: auto;
 			opacity: .75;
 			background-size: 100%;
@@ -91,7 +91,6 @@
 			font-size: 30px;
 			color: #000;
 			background-color: rgba(255,255,255,.55);
-			margin: 10px auto;
 		}
 		.lrc-show p{
 			margin: 0;
