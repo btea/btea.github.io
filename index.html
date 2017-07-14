@@ -159,6 +159,107 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><br>  <!-- JiaThis Button BEGIN --><div id="ckepop"><br>    <span class="jiathis_txt">分享到：</span><br>    <a class="jiathis_button_weixin">微信</a><br>    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a><br>    <a class="jiathis_counter_style"></a> </div><br>    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1" charset="utf-8"></script><br>     <!-- JiaThis Button END --></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/14/test/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-node.js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="10大使用Node-js的理由"><a href="#10大使用Node-js的理由" class="headerlink" title="10大使用Node.js的理由"></a>10大使用Node.js的理由</h1><blockquote>
+<p>本文转载自：<a href="http://www.zcfy.cc" target="_blank" rel="external">众成翻译</a><br>译者：<a href="http://www.zcfy.cc/@cherryvenus" target="_blank" rel="external">cherryvenus</a><br>链接：<a href="http://www.zcfy.cc/article/2198" target="_blank" rel="external">http://www.zcfy.cc/article/2198</a><br>原文：<a href="http://blog.modulus.io/top-10-reasons-to-use-node" target="_blank" rel="external">http://blog.modulus.io/top-10-reasons-to-use-node</a></p>
+</blockquote>
+<p>无论你的经验是否丰富，都有许多理由使用Node.js。我们来看看使用Node的几个主要的理由，以及为什么你会爱上他。</p>
+<p>啊！我懂了。你不是一个跟随潮流的开发者。因为大家都不用，所以你也不使用一些很酷的与时俱进的平台。这就是为什么你还没有认真看待 <a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a>（或者你的boss还没有让你捣鼓这些）。好嘞，是时候重新审视Node.js了。使用Nodejs，有许多理由，这里是其中的10条。</p>
+<p><img src="http://p0.qhimg.com/t013494e51ae5ceb86e.png" alt="null"></p>
+<h3 id="1-你已经熟悉了JavaScript"><a href="#1-你已经熟悉了JavaScript" class="headerlink" title="1. 你已经熟悉了JavaScript"></a>1. 你已经熟悉了JavaScript</h3><p>让我猜猜。你正在使用一个功能强大的客户端框架(<a href="https://angularjs.org/" target="_blank" rel="external">Angular</a>，<a href="http://emberjs.com/" target="_blank" rel="external">Ember</a>, <a href="http://backbonejs.org/" target="_blank" rel="external">Backbone</a>)以及REST-ful服务器端的API，使用JSON这种数据格式来传输和接受数据。即使你没有使用其中的任一种框架，你也用jQuery写过自己的框架。因此如果你不在服务器端使用Node.js，那么你就不断地做转译吧。你在转译两件事：1）来自你脑中JavaScript的逻辑转换为服务器端框架的逻辑。以及2）来自JSON的HTTP数据转换为你的服务器端的对象。</p>
+<p>JavaScript贯穿着你的应用，你不但智力上涨，你也获得了实践经验。通过模型和模板的复用，你可以减少应用的大小，同时减少了复杂度和出现bug的可能性。</p>
+<p>JavaScript作为一种语言正在占领全世界！过不了多久，全球的每台电脑上都会有一个JavaScript运行环境，并且这看上去会持续一段时间。</p>
+<h3 id="2-它很快"><a href="#2-它很快" class="headerlink" title="2. 它很快"></a>2. 它很快</h3><p>Node.js是JavaScript运行环境，使用了Google用在Chrome中的V8引擎。V8以闪电般的速度编译和执行JavaScript是因为V8将JavaScript编译成本地机器代码。</p>
+<p><img src="http://p0.qhimg.com/t01ebafd23ec44d1a8e.jpg" alt="null"></p>
+<p>除了让JavaScript运行有闪电般的速度，Node.js真正的魔法是event loop。event loop 在所有的I/O异步操作中都是单线程实现的。传统上，I/O操作可以同步运行（阻塞），也可以是异步的，通过并行线程来执行工作。这种传统的方法消耗许多内存并且是臭名昭著地难编程。相比较之下，当一个Node应用需要执行一个I/O操作，他传递一个异步任务到event loop，加上一个回调函数，然后继续执行剩下的程序。当异步操作完成，event loop 返回任务去执行他的回调函数。</p>
+<p>换句话说，网络连接的读写，文件系统的读写，以及数据库的读写——所有的在网页应用中的日常任务——在Node中执行地非常非常快。Node能让你创建快速，大规模的网络应用，能够处理高吞吐量的大量的实时连接。</p>
+<h3 id="3-工具"><a href="#3-工具" class="headerlink" title="3. 工具"></a>3. 工具</h3><p><img src="http://p0.qhimg.com/t01475899077af3e019.png" alt="null"></p>
+<p><a href="https://www.npmjs.org/" target="_blank" rel="external">npm</a>是Node.js的包管理器并且它棒呆了。这确实很棒，当然，这类似于其他生态系统的包管理器，但是npm很快很稳很一致。他在寻找和安装项目依赖做的非常好。他让包和其他的项目隔离开来，防止版本混淆。但是，他也处理全局shell命令安装和平台依赖的二进制。一时间，我不记得我在npm中安装的包，在这里我要问自己，“为什么会混淆这些模块？模块安装在哪里？为什么选这个版本而不是另一个？”</p>
+<p><a href="http://gruntjs.com/" target="_blank" rel="external">grunt</a> 是较早的任务管理器，但是也有新生代的工具，如<a href="http://gulpjs.com/" target="_blank" rel="external">gulp</a>, <a href="http://brunch.io/" target="_blank" rel="external">brunch</a>, 和 <a href="https://github.com/broccolijs/broccoli" target="_blank" rel="external">broccoli</a>，他们专注于创建编译你的文件，利用了JavaScript强大的文件流能力。</p>
+<h3 id="4-你又一次刷新了对JavaScript的认识"><a href="#4-你又一次刷新了对JavaScript的认识" class="headerlink" title="4. 你又一次刷新了对JavaScript的认识"></a>4. 你又一次刷新了对JavaScript的认识</h3><p><img src="http://p0.qhimg.com/t018cdb56bfcae707f2.png" alt="null"></p>
+<p>那么你决定在你的服务器上用JavaScript了，并且你为你的决定感到庆幸，避免了所有的从客户端数据到服务器端数据的编译。但是数据到数据库需要甚至更多的编译！</p>
+<p>There’s good news. If you’re using an object database like <a href="http://www.mongodb.org/" target="_blank" rel="external">Mongo</a>, then you can extend JavaScript to the persistence layer as well.<br>这是一个好消息。如果你在用对象数据库，如 <a href="http://www.mongodb.org/" target="_blank" rel="external">Mongo</a>，然后你可以扩展JavaScript让持久层更好。</p>
+<p>使用node.js允许你在客户端，在服务器端和在数据库中用相同的语言。从浏览器到磁盘，你可以用他的原生JSON格式保存你的数据。</p>
+<h3 id="5-实时变得简单"><a href="#5-实时变得简单" class="headerlink" title="5. 实时变得简单"></a>5. 实时变得简单</h3><p>如果Node.js很擅长多并发连接，那么他也擅长多用户的，实时的网页程序，例如聊天室和游戏。Node的 event loop 能够满足多用户需求。实时能力使用websocket协议。Websocket是在客户端和服务器端的简单的双向沟通渠道。因此服务器能够推送数据到客户端就像客户端推送一样。websocket运行在TCP，避免了HTTP的消耗。</p>
+<p><a href="http://socket.io/" target="_blank" rel="external">Socket.io</a>是在websoket库中的一个非常受欢迎的库，这让杀掉协同的web应用变得简单。这里是一个简单的使用 socket.io的服务器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var app = require(&apos;http&apos;).createServer(handler)</div><div class="line">var io = require(&apos;socket.io&apos;)(app);</div><div class="line"></div><div class="line">app.listen(8080);</div><div class="line"></div><div class="line">io.on(&apos;connection&apos;, function (socket) &#123;</div><div class="line"></div><div class="line">  // Send a message to the client</div><div class="line">  socket.emit(&apos;event to client&apos;, &#123; hello: &apos;world&apos; &#125;);</div><div class="line"></div><div class="line">  // Handle a message from the client</div><div class="line">  socket.on(&apos;event from client, function (data) &#123;</div><div class="line">    console.log(data);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="6-流数据"><a href="#6-流数据" class="headerlink" title="6. 流数据"></a>6. 流数据</h3><p>传统意义上来说，web框架将HTTP请求和响应当做一个整体的数据对象。实际上，他们是I/O流，你可以想象，如果你把文件从文件系统中以流的形式取出。既然Node.js非常擅长处理I/O，我们能够利用这个特点创建一些很酷的东西。比如，它能够当视频或音频文件上传的时候，就<a href="http://transloadit.com/blog/2010/12/realtime-encoding-over-150x-faster/" target="_blank" rel="external">转码音频或视频文件</a>，减少了整体处理的时间。</p>
+<p>Node能够读写流到websocket，就像他可以读写流到HTTP。比如，我们能够从服务器中运行的进程中通过websocket标准输出到浏览器，并且实时在网页上显示输出结果。</p>
+<h3 id="7-一个代码库和免费的实时"><a href="#7-一个代码库和免费的实时" class="headerlink" title="7. 一个代码库和免费的实时"></a>7. 一个代码库和免费的实时</h3><p>如果你已经了解了这么多，你可能会问自己，“如果Node.js允许你在服务器和客户端使用JavaScript，并且让客户端和服务器端数据传输变得简单，我能不能写一个web应用，让一个代码库在客户端和服务器端运行，并且在两者之间自动异步处理数据。”</p>
+<p><img src="http://p0.qhimg.com/t01f765a2e8ed7a6e11.png" alt="null"></p>
+<p>这个问题的答案是yes，并且对于此app的框架可以是<a href="https://www.meteor.com/" target="_blank" rel="external">Meteor</a>。Meteor是下一代基于Node的web框架。他可以在客户端和服务器端运行相同的代码库。然后，数据自动保存在服务器。其他的方式也奏效！任何服务器上的数据都自动传到客户端。未来会更好！任何展示数据的网页都会自动回应和自动更新。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// Save the value of &apos;name&apos; upon clicking &apos;submit&apos; directly in the browser!</div><div class="line">&apos;.click .submit&apos;: function(e, tpl) &#123;</div><div class="line">  Users.update(</div><div class="line">    &#123; _id: this._id &#125;,</div><div class="line">    &#123; $set: &#123; name: $(&apos;.name&apos;).val() &#125;&#125;</div><div class="line">  );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="8-企业管理者"><a href="#8-企业管理者" class="headerlink" title="8. 企业管理者"></a>8. 企业管理者</h3><p>任何开源项目的潜在风险就是被项目维护者所放弃。这不是Node.js的现况。Node现在由 <a href="https://www.joyent.com/" target="_blank" rel="external">Joyent</a>所赞助，这雇佣了项目带头人和其他的核心贡献者，因此有一家真实的公司在支持这项目的未来。更不要说有一大批大公司在每一个层级支持了此项目，其中包括 Walmart, Microsoft, Yahoo, Paypal, Voxer, 等等。</p>
+<h3 id="9-托管"><a href="#9-托管" class="headerlink" title="9. 托管"></a>9. 托管</h3><p><img src="http://p0.qhimg.com/t015e965983ccdda08a.png" alt="null"></p>
+<p>随着Node.js的快速普及，世界级规模的Node.js托管也在增长着。特别是，平台即服务（PaaS）供应者，比如<a href="https://modulus.io/" target="_blank" rel="external">Modulus</a> 和其他减少为一个指令的部署。PaaS的鼻祖，Heroku，现在正式地支持Node部署。</p>
+<h3 id="10-每个开发者都知道（一些）JavaScript"><a href="#10-每个开发者都知道（一些）JavaScript" class="headerlink" title="10. 每个开发者都知道（一些）JavaScript"></a>10. 每个开发者都知道（一些）JavaScript</h3><p>这是给你boss的理由。</p>
+<p>随着web的兴起，已经存在的JavaScript的点击和鼠标滑过事件。每个web开发者都编写过一点JavaScript，即使是使用jQuery插件开发的JavaScript。寻找web开发擦能的人现在非常困难，因此当选择一个web平台，为什么不选择在这个世界上每个web开发者都熟悉的语言？</p>
+<h3 id="总结！奖励！"><a href="#总结！奖励！" class="headerlink" title="总结！奖励！"></a>总结！奖励！</h3><p>但是等等，还有更多！和任何平台或产品一样，开源或者其他的，他的社区都有着巨大的影响因素。Node在这方面是首屈一指的。从聚会到会议，有很多真的很聪明的人每天都在为生态圈工作。与此同时，社区是很受欢迎的。这些聪明的人很高兴给这些新人提供Node的帮助，即使是一般的编程。在IRC，你不用不好意思问问题或者开出一个话题。这个社区是十分活跃的，在npm上有超过91000的模块。并且这个社区是慷慨的。在2013年，个人 <a href="https://scalenpm.nodejitsu.com/" target="_blank" rel="external">赞助超过 $70,000</a>帮助公共npm服务器运行。</p>
+<p>是的，Node现在是很受欢迎的。这是web开发，因此可能下周，node就会消失，下一个热点会出现（会是GO或者Elixir吗？）。但是试试吧！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/06/node.js/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-cloud" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
