@@ -1,5 +1,6 @@
 # btea.github.io
-blog
+blog  
+[位运算符具体实现操作](https://www.cnblogs.com/heluo/p/3422357.html)
 ## [在线预览](https://btea.github.io/)
 ## js位运算符（|、||、&、&&）
 #### 例子
