@@ -2,6 +2,7 @@
 blog  
 [位运算符具体实现操作](https://www.cnblogs.com/heluo/p/3422357.html)
 ## [在线预览](https://btea.github.io/)
+## [javascript技术](http://www.ruanyifeng.com/blog/javascript/)
 ## js位运算符（|、||、&、&&）
 #### 例子
  `console.log(0.6|0) => 0`     
