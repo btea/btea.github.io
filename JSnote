@@ -1,8 +1,0 @@
-#addEventListener
-
-EventTarget.addEventListener(type,callback,options) 方法将指定的监听器注册到 EventTarget 上，当该对象触发指定的事件时，指定的回调函数就会被执行。 
-事件目标可以是一个文档上的元素 Document 本身，或者任何其他支持事件的对象 (比如 XMLHttpRequest)。
-该方法的第三个参数默认是false，即事件冒泡。设置为true,则是事件捕获。
-冒泡：从触发该事件的元素的开始，逐级往外层元素不断冒泡触发相同事件，直至绑定有相同事件的最外层元素为止。（或者说是直至window）
-捕获：从触发该事件的元素最外层绑定有相同事件的元素开始，逐级往内部不断捕获触发该事件，直至触发至最初触发该事件的元素为止。
-　event.stopPropagation(),该方法不仅仅可以阻止冒泡，还可以阻止捕获和处于目标阶段。
