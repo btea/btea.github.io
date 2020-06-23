@@ -22,5 +22,21 @@
 </head>
 <body>
     <div class="hello">...</div>
+    <audio loop class="audio"></audio>
+    <script>
+        let isPlay = false
+        document.addEventListener('click', function() {
+            if (isPlay) {
+                return
+            }
+            isPlay = true
+            let audio = document.getElementsByClassName('audio')[0]
+            audio.src = './media/piano.mp3'
+            audio.volume = 0.1
+            setTimeout(function() {
+                audio.play()
+            }, 100)
+        })
+    </script>
 </body>
 </html>
