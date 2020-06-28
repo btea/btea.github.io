@@ -18,10 +18,180 @@
             text-align: center;
             color: #0d90ec;
         }
+        .border{
+            width: 300px;
+            height: 160px;
+            background: aqua;
+            border-radius: 5px;
+            /* overflow: hidden; */
+            margin: 50px auto;
+            position: relative;
+            text-align: center;
+            border: 6px solid #6cf;
+            box-sizing: border-box;
+        }
+        .border-out,.border-inner{
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: 20px solid;
+            border-color: transparent transparent #6cf transparent;
+        }
+        .border-out.top,.border-inner.top{
+            left: 50%;
+            margin-left: -20px;
+            bottom: 100%;
+        }
+        .border-inner.top{
+            border: 10px solid;
+            margin-left: -10px;
+            border-color: transparent transparent aqua transparent;
+        }
+        .border-out.right,.border-inner.right{
+            top: 50%;
+            left: 100%;
+        }
+        .border-inner.top{
+            border: 10px solid;
+            margin-left: -10px;
+            border-color: transparent transparent aqua transparent;
+        }
+        .operator-list{
+            position: absolute;
+            top: 100px;
+            right: 100px;
+        }
+        .btn{
+            display: inline-block;
+            height: 25px;
+            width: 25px;
+            margin: 0 5px;
+            border: 1px solid;
+            border-radius: 3px;
+            vertical-align: middle;
+            cursor: pointer;
+            position: relative;
+        }
+        .reduce::before{
+            content: '';
+            width: 15px;
+            position: absolute;
+            left: 5px;
+            top: 12px;
+            height: 2px;
+            background: #000;
+        }
+        .add::before{
+            content: '';
+            width: 15px;
+            position: absolute;
+            left: 5px;
+            top: 12px;
+            height: 2px;
+            background: #000;
+        }
+        .add::after{
+            content: '';
+            width: 2px;
+            position: absolute;
+            left: 12px;
+            top: 5px;
+            height: 15px;
+            background: #000;
+        }
+        .sizeVal{
+            outline: none;
+            margin-left: 15px;
+            height: 25px;
+            width: 50px;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0;
+            background: none;
+        }
+        .position-change{
+            margin-top: 15px;
+        }
+        .position-list{
+            display: inline-block;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .position-list li{
+            list-style: none;
+            float: left;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        input[type="radio"]{
+            cursor: pointer;
+        }
+        label{
+            cursor: pointer;
+        }
+        .position-list .pos{
+            display: inline-block;
+            position: relative;
+            width: 12px;
+            height: 12px;
+            cursor: pointer;
+            margin: 5px 20px;
+            border-radius: 10px;
+            border: 1px solid;
+
+        }
+        .position-list .pos.active{
+            border-color: #6cf;
+        }
+        .position-list .active::before{
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: #6cf;
+            border-radius: 4px;
+            position: absolute;
+            left: 2px;
+            top: 2px;
+        }
+        .pos::after{
+            content: attr(data-text);
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            left: 20px;
+            top: -4px;
+        }
     </style>
 </head>
 <body>
-    <div class="hello">...</div>
+    <div class="border">
+        <div class="border-out top"></div>
+        <div class="border-inner top"></div>
+        这是一个边框
+    </div>
+    <div class="operator-list">
+        <div class="size-change">
+            <span class="text">改变尺寸</span>
+            <span class="reduce btn"></span>
+            <input type="text" class="sizeVal" readonly value="10">
+            <span class="add btn"></span>
+        </div>
+        <div class="position-change">
+            <span class="text">改变位置</span>
+            <ul class="position-list">
+                <li class="pos active" data-p="top" data-text="上"></li>
+                <li class="pos" data-p="right" data-text="右"></li>
+                <li class="pos" data-p="bottom" data-text="下"></li>
+                <li class="pos" data-p="left" data-text="左"></li>
+                <!-- <li class="top"><input type="radio" name="pos" id="top" checked><label for="top">上</label></li>
+                <li class="right"><input type="radio" name="pos" id="right"><label for="right">右</label></li>
+                <li class="bottom"><input type="radio" name="pos" id="bottom"><label for="bottom">下</label></li>
+                <li class="left"><input type="radio" name="pos" id="left"><label for="left">左</label></li> -->
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="hello">...</div>
     <audio loop class="audio"></audio>
     <script>
         let isPlay = false
@@ -37,6 +207,160 @@
                 audio.play()
             }, 100)
         })
+    </script> -->
+    <script>
+        (function() {
+            const colors = {
+                success: 'green',
+                error: 'red',
+                init: 'gray',
+                color: '#fff'
+            }
+            class Alert{
+                constructor(opt) {
+                    /**
+                    * @params opt 参数集合
+                    * @params Number opt.time 弹窗显示的时间，默认为3秒
+                    * 
+                    */
+                    this.time = opt.time || 3000
+                    this.duration = '.8s'  // 动画过渡时间
+                    this.background = opt.background || 'init'  // 弹窗背景颜色
+                    this.color = opt.color || 'color'  // 弹窗文字颜色
+                    this.text = opt.text
+                    this.deviation = opt.deviation || 10 // 弹窗出现或者消失时偏移的距离
+                    this.el = this.createEl()
+                    this.elementStyle(this.el)
+                    this.el.innerText = this.text
+                    this.addLayer()
+                    setTimeout(() => {
+                        this.removeLayer()
+                    }, this.time + 200)
+                }
+                createEl(tag) {
+                    return document.createElement(tag || 'div')
+                }
+                addLayer() {
+                    document.body.appendChild(this.el)
+                    setTimeout(() => {
+                        this.el.style.marginTop = '0'
+                        this.el.style.opacity = 1
+                    }, 100)
+                }
+                removeLayer() {
+                    let style = this.el.style
+                    style.marginTop = `${this.deviation}px`
+                    style.opacity = 0
+                    let t = parseFloat(this.duration) * 1000 + 200
+                    // setTimeout(() => {
+                    //     document.body.removeChild(this.el)
+                    // }, t)
+                }
+                elementStyle(el) {
+                    el.style.position = 'absolute';
+                    el.style.left = '50%';
+                    el.style.top = '50%';
+                    el.style.padding = '5px 10px';
+                    el.style.zIndex = 1000;
+                    el.style.transform = 'translate(-50%, -50%)';
+                    el.style.borderRadius = '3px';
+                    el.style.opacity = 0
+                    el.style.color = colors[this.color]
+                    el.style.marginTop = `${this.deviation}px`;
+                    el.style.transition = `all ${this.duration}`;
+                    el.style.color = colors[this.color];
+                    el.style.background = this.background;
+                }
+            }
+            function getEl(className) {
+                return document.getElementsByClassName(className)[0]
+            }
+            function throttle(fn, time) {
+                // 节流
+                var timer;
+                return function(event) {
+                    if (timer) {
+                        return
+                    }
+                    timer = setTimeout(function() {
+                        fn(event)
+                        timer = null
+                    }, time)
+                }
+            }
+            function valDeal(v) {
+                // 判断输入的是不是整数，如果不是，进行转换
+                v = parseInt(v)
+                if (v !== v) {
+                    return 0
+                }
+                return v
+            }
+            function sizeChange() {
+                let out = val + w
+                let inner = val
+                outEl.style.borderWidth = out + 'px'
+                outEl.style.marginLeft = -out + 'px'
+                innerEl.style.borderWidth = inner + 'px'
+                innerEl.style.marginLeft = -inner + 'px'
+            }
+            function postionChange(event) {
+                let p = event.target.dataset.p
+                outEl.style
+            }
+            function top() {
+                outEl.style.left = innerEl.style.left = '50%'
+                outEl.style.bottom = innerEl.style.bottom = '100%'
+            }
+            function right() {}
+            function bottom() {}
+            function left() {}
+            let val = 10
+            let w = 10
+            let outEl = getEl('border-out');
+            let innerEl = getEl('border-inner');
+            let size = getEl('sizeVal');
+            let position = getEl('position-list')
+            let add = getEl('add')
+            let reduce = getEl('reduce')
+            let pos = 'top'; // 方向 上下左右
+            let posVal = {
+                top: ['left', 'bottom', 'marginLeft'],
+                right: ['top', 'left', 'marginTop'],
+                bottom: ['left', 'top', 'marginLeft'],
+                left: ['top', 'right', 'marginTop']
+            }; // 根据三角标出现的位置不同，对应的元素方位值设置
+            var posList = document.getElementsByClassName('pos')
+            posList = Array.from(posList)
+            add.addEventListener('click', function() {
+                if (val >= 30) {
+                    new Alert({
+                        text: '已设置为最大值',
+                        background: 'gray'
+                    })
+                    return    
+                }
+                val++
+                size.value = val
+                sizeChange()
+            });
+            reduce.addEventListener('click', function() {
+                if (val <= 6) {
+                    new Alert({
+                        text: '已设置为最小值',
+                        background: 'gray'
+                    })
+                    return    
+                }
+                val--
+                size.value = val
+                sizeChange()
+            })
+            posList.forEach(function(el) {
+                el.addEventListener('click', postionChange)
+            })
+
+        })()
     </script>
 </body>
 </html>
