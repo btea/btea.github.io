@@ -5,164 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>当此世，赢输都算闲话</title>
     <link rel="shortcut icon" href="https://avatars1.githubusercontent.com/u/24516654?s=40&v=4" type="image/jpeg">
-    <style>
-        html,body{
-            height: 100%;
-            overflow: hidden;
-            margin: 0;
-            background: linear-gradient(-45deg, #2edce26e, transparent);
-        }
-        .hello{
-            margin: 100px;
-            font-size: 20px;
-            text-align: center;
-            color: #0d90ec;
-        }
-        .border{
-            width: 300px;
-            height: 160px;
-            background: aqua;
-            border-radius: 5px;
-            /* overflow: hidden; */
-            margin: 50px auto;
-            position: relative;
-            text-align: center;
-            border: 6px solid #6cf;
-            box-sizing: border-box;
-        }
-        .border-out,.border-inner{
-            position: absolute;
-            width: 0;
-            height: 0;
-            border: 20px solid;
-            border-color: transparent transparent #6cf transparent;
-        }
-        .border-out.top,.border-inner.top{
-            left: 50%;
-            margin-left: -20px;
-            bottom: 100%;
-        }
-        .border-inner.top{
-            border: 10px solid;
-            margin-left: -10px;
-            border-color: transparent transparent aqua transparent;
-        }
-        .border-out.right,.border-inner.right{
-            top: 50%;
-            left: 100%;
-        }
-        .border-inner.top{
-            border: 10px solid;
-            margin-left: -10px;
-            border-color: transparent transparent aqua transparent;
-        }
-        .operator-list{
-            position: absolute;
-            top: 100px;
-            right: 100px;
-        }
-        .btn{
-            display: inline-block;
-            height: 25px;
-            width: 25px;
-            margin: 0 5px;
-            border: 1px solid;
-            border-radius: 3px;
-            vertical-align: middle;
-            cursor: pointer;
-            position: relative;
-        }
-        .reduce::before{
-            content: '';
-            width: 15px;
-            position: absolute;
-            left: 5px;
-            top: 12px;
-            height: 2px;
-            background: #000;
-        }
-        .add::before{
-            content: '';
-            width: 15px;
-            position: absolute;
-            left: 5px;
-            top: 12px;
-            height: 2px;
-            background: #000;
-        }
-        .add::after{
-            content: '';
-            width: 2px;
-            position: absolute;
-            left: 12px;
-            top: 5px;
-            height: 15px;
-            background: #000;
-        }
-        .sizeVal{
-            outline: none;
-            margin-left: 15px;
-            height: 25px;
-            width: 50px;
-            text-align: center;
-            vertical-align: middle;
-            margin: 0;
-            background: none;
-        }
-        .position-change{
-            margin-top: 15px;
-        }
-        .position-list{
-            display: inline-block;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-        }
-        .position-list li{
-            list-style: none;
-            float: left;
-            margin: 0 10px;
-            cursor: pointer;
-        }
-        input[type="radio"]{
-            cursor: pointer;
-        }
-        label{
-            cursor: pointer;
-        }
-        .position-list .pos{
-            display: inline-block;
-            position: relative;
-            width: 12px;
-            height: 12px;
-            cursor: pointer;
-            margin: 5px 20px;
-            border-radius: 10px;
-            border: 1px solid;
-
-        }
-        .position-list .pos.active{
-            border-color: #6cf;
-        }
-        .position-list .active::before{
-            content: '';
-            width: 8px;
-            height: 8px;
-            background-color: #6cf;
-            border-radius: 4px;
-            position: absolute;
-            left: 2px;
-            top: 2px;
-        }
-        .pos::after{
-            content: attr(data-text);
-            width: 25px;
-            height: 25px;
-            position: absolute;
-            left: 20px;
-            top: -4px;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <div class="border">
@@ -300,21 +143,84 @@
                 let out = val + w
                 let inner = val
                 outEl.style.borderWidth = out + 'px'
-                outEl.style.marginLeft = -out + 'px'
+                outEl.style[posVal[pos]] = -out + 'px'
                 innerEl.style.borderWidth = inner + 'px'
-                innerEl.style.marginLeft = -inner + 'px'
+                innerEl.style[posVal[pos]] = -inner + 'px'
             }
             function postionChange(event) {
                 let p = event.target.dataset.p
-                outEl.style
+                pos = p
+                posList.forEach(el => {
+                    el.classList.remove('active')
+                })
+                event.target.classList.add('active')
+                eval(p +'()')
+                // outEl.style
             }
             function top() {
-                outEl.style.left = innerEl.style.left = '50%'
-                outEl.style.bottom = innerEl.style.bottom = '100%'
+                outEl.style = `
+                    left: 50%;
+                    bottom: 100%;
+                    border: ${val + w}px solid;
+                    margin-left: ${-(val + w)}px;
+                    border-color: transparent transparent #6cf transparent;
+                `
+                innerEl.style = `
+                    left: 50%;
+                    bottom: 100%;
+                    border: ${val}px solid;
+                    margin-left: ${-val}px;
+                    border-color: transparent transparent aqua transparent;
+                `
             }
-            function right() {}
-            function bottom() {}
-            function left() {}
+            function right() {
+                outEl.style = `
+                    left: 100%;
+                    top: 50%;
+                    border: ${val + w}px solid;
+                    margin-top: ${-(val + w)}px;
+                    border-color: transparent transparent transparent #6cf;
+                `
+                innerEl.style = `
+                    left: 100%;
+                    top: 50%;
+                    border: ${val}px solid;
+                    margin-top: ${-val}px;
+                    border-color: transparent transparent transparent aqua;
+                `
+            }
+            function bottom() {
+                outEl.style = `
+                    left: 50%;
+                    top: 100%;
+                    border: ${val + w}px solid;
+                    margin-left: ${-(val + w)}px;
+                    border-color: #6cf transparent transparent transparent;
+                `
+                innerEl.style = `
+                    left: 50%;
+                    top: 100%;
+                    border: ${val}px solid;
+                    margin-left: ${-val}px;
+                    border-color: aqua transparent transparent transparent;
+                `
+            }
+            function left() {
+                outEl.style = `
+                    right: 100%;
+                    top: 50%;
+                    border: ${val + w}px solid;
+                    margin-top: ${-(val + w)}px;
+                    border-color: transparent #6cf transparent transparent;
+                `
+                innerEl.style = `
+                    right: 100%;
+                    top: 50%;
+                    border: ${val}px solid;
+                    margin-top: ${-val}px;
+                    border-color: transparent aqua transparent transparent;
+                `
+            }
             let val = 10
             let w = 10
             let outEl = getEl('border-out');
@@ -325,10 +231,10 @@
             let reduce = getEl('reduce')
             let pos = 'top'; // 方向 上下左右
             let posVal = {
-                top: ['left', 'bottom', 'marginLeft'],
-                right: ['top', 'left', 'marginTop'],
-                bottom: ['left', 'top', 'marginLeft'],
-                left: ['top', 'right', 'marginTop']
+                top: 'marginLeft',
+                right: 'marginTop',
+                bottom: 'marginLeft',
+                left: 'marginTop'
             }; // 根据三角标出现的位置不同，对应的元素方位值设置
             var posList = document.getElementsByClassName('pos')
             posList = Array.from(posList)
@@ -359,7 +265,10 @@
             posList.forEach(function(el) {
                 el.addEventListener('click', postionChange)
             })
-
+            top()
+            // right()
+            // bottom()
+            // left()
         })()
     </script>
 </body>
