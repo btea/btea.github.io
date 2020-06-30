@@ -1,0 +1,136 @@
+html,body{
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    background: linear-gradient(-45deg, #2edce26e, transparent);
+}
+.hello{
+    margin: 100px;
+    font-size: 20px;
+    text-align: center;
+    color: #0d90ec;
+}
+.border{
+    width: 300px;
+    height: 160px;
+    background: aqua;
+    border-radius: 5px;
+    /* overflow: hidden; */
+    margin: 50px auto;
+    position: relative;
+    text-align: center;
+    border: 6px solid #6cf;
+    box-sizing: border-box;
+}
+.border-out,.border-inner{
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+.operator-list{
+    position: absolute;
+    top: 100px;
+    right: 100px;
+}
+.btn{
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    margin: 0 5px;
+    border: 1px solid;
+    border-radius: 3px;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+}
+.reduce::before{
+    content: '';
+    width: 15px;
+    position: absolute;
+    left: 5px;
+    top: 12px;
+    height: 2px;
+    background: #000;
+}
+.add::before{
+    content: '';
+    width: 15px;
+    position: absolute;
+    left: 5px;
+    top: 12px;
+    height: 2px;
+    background: #000;
+}
+.add::after{
+    content: '';
+    width: 2px;
+    position: absolute;
+    left: 12px;
+    top: 5px;
+    height: 15px;
+    background: #000;
+}
+.sizeVal{
+    outline: none;
+    margin-left: 15px;
+    height: 25px;
+    width: 50px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+    background: none;
+    border: 1px solid;
+}
+.position-change{
+    margin-top: 15px;
+}
+.position-list{
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.position-list li{
+    list-style: none;
+    float: left;
+    margin: 0 10px;
+    cursor: pointer;
+}
+input[type="radio"]{
+    cursor: pointer;
+}
+label{
+    cursor: pointer;
+}
+.position-list .pos{
+    display: inline-block;
+    position: relative;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    margin: 5px 20px;
+    border-radius: 10px;
+    border: 1px solid;
+
+}
+.position-list .pos.active{
+    border-color: #6cf;
+}
+.position-list .active::before{
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: #6cf;
+    border-radius: 4px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+}
+.pos::after{
+    content: attr(data-text);
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 15px;
+    top: -4px;
+}
