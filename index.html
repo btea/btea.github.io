@@ -34,7 +34,7 @@
             </ul>
         </div>
     </div>
-    <!-- <div class="hello">...</div>
+    <!-- <div class="hello">...</div> -->
     <audio loop class="audio"></audio>
     <script>
         let isPlay = false
@@ -50,7 +50,7 @@
                 audio.play()
             }, 100)
         })
-    </script> -->
+    </script>
     <script>
         (function() {
             const colors = {
@@ -95,9 +95,9 @@
                     style.marginTop = `${this.deviation}px`
                     style.opacity = 0
                     let t = parseFloat(this.duration) * 1000 + 200
-                    // setTimeout(() => {
-                    //     document.body.removeChild(this.el)
-                    // }, t)
+                    setTimeout(() => {
+                        document.body.removeChild(this.el)
+                    }, t)
                 }
                 elementStyle(el) {
                     el.style.position = 'absolute';
