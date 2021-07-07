@@ -1,16 +1,18 @@
-html,body{
+html,
+body {
     height: 100%;
     overflow: hidden;
     margin: 0;
     background: linear-gradient(-45deg, #2edce26e, transparent);
+    animation: background 10s ease infinite alternate;
 }
-.hello{
+.hello {
     margin: 100px;
     font-size: 20px;
     text-align: center;
     color: #0d90ec;
 }
-.border{
+.border {
     width: 300px;
     height: 160px;
     background: aqua;
@@ -22,17 +24,18 @@ html,body{
     border: 6px solid #6cf;
     box-sizing: border-box;
 }
-.border-out,.border-inner{
+.border-out,
+.border-inner {
     position: absolute;
     width: 0;
     height: 0;
 }
-.operator-list{
+.operator-list {
     position: absolute;
     top: 100px;
     right: 100px;
 }
-.btn{
+.btn {
     display: inline-block;
     height: 25px;
     width: 25px;
@@ -43,7 +46,7 @@ html,body{
     cursor: pointer;
     position: relative;
 }
-.reduce::before{
+.reduce::before {
     content: '';
     width: 15px;
     position: absolute;
@@ -52,7 +55,7 @@ html,body{
     height: 2px;
     background: #000;
 }
-.add::before{
+.add::before {
     content: '';
     width: 15px;
     position: absolute;
@@ -61,7 +64,7 @@ html,body{
     height: 2px;
     background: #000;
 }
-.add::after{
+.add::after {
     content: '';
     width: 2px;
     position: absolute;
@@ -70,7 +73,7 @@ html,body{
     height: 15px;
     background: #000;
 }
-.sizeVal{
+.sizeVal {
     outline: none;
     margin-left: 15px;
     height: 25px;
@@ -81,28 +84,28 @@ html,body{
     background: none;
     border: 1px solid;
 }
-.position-change{
+.position-change {
     margin-top: 15px;
 }
-.position-list{
+.position-list {
     display: inline-block;
     overflow: hidden;
     margin: 0;
     padding: 0;
 }
-.position-list li{
+.position-list li {
     list-style: none;
     float: left;
     margin: 0 10px;
     cursor: pointer;
 }
-input[type="radio"]{
+input[type='radio'] {
     cursor: pointer;
 }
-label{
+label {
     cursor: pointer;
 }
-.position-list .pos{
+.position-list .pos {
     display: inline-block;
     position: relative;
     width: 12px;
@@ -111,12 +114,11 @@ label{
     margin: 5px 20px;
     border-radius: 10px;
     border: 1px solid;
-
 }
-.position-list .pos.active{
+.position-list .pos.active {
     border-color: #6cf;
 }
-.position-list .active::before{
+.position-list .active::before {
     content: '';
     width: 8px;
     height: 8px;
@@ -126,11 +128,62 @@ label{
     left: 2px;
     top: 2px;
 }
-.pos::after{
+.pos::after {
     content: attr(data-text);
     width: 25px;
     height: 25px;
     position: absolute;
     left: 15px;
     top: -4px;
+}
+
+@keyframes rotate {
+    0% {
+        background: linear-gradient(-45deg, #2edce26e, transparent);
+    }
+    100% {
+        background: linear-gradient(315deg, #2edce26e, transparent);
+    }
+}
+
+@-o-keyframes background {
+    0% {
+        background-size: 10% 50%;
+    }
+    100% {
+        background-size: 50% 10%;
+    }
+}
+@-moz-keyframes background {
+    0% {
+        background-size: 10% 50%;
+    }
+    100% {
+        background-size: 50% 10%;
+    }
+}
+@-ms-keyframes background {
+    0% {
+        background-size: 10% 50%;
+    }
+    100% {
+        background-size: 50% 10%;
+    }
+}
+@-webkit-keyframes background {
+    0% {
+        background-size: 10% 50%;
+    }
+    100% {
+        background-size: 50% 10%;
+    }
+}
+
+@keyframes background {
+    0% {
+        background-size: 10% 50%;
+    }
+    100% {
+        background-size: 50% 10%;
+    }
 }
