@@ -4,7 +4,8 @@ body {
     overflow: hidden;
     margin: 0;
     background: linear-gradient(-45deg, #2edce26e, transparent);
-    animation: background 10s ease infinite alternate;
+/*     animation: background 10s ease infinite alternate; */
+    background-size: 30px 30px;
 }
 .hello {
     margin: 100px;
